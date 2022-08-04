@@ -1,5 +1,32 @@
 .card-marvel {
-    width: 18rem;
-    height: 300px;
+    width: 300px;
+    height: 400px;
     margin-bottom: 30px;
+    background-color: black;
+}
+
+.container-img {
+    width: 200px;
+    height: 300px;
+    align-self: center;
+    justify-self: center;
+}
+
+.container-title {
+    align-self: center;
+    justify-self: center;
+    color: white;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.container-button {
+    align-self: flex-end;
+}
+
+button {
+    background-color: white;
 }

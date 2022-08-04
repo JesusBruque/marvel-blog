@@ -35,13 +35,19 @@ const Home = () => {
 
 	return (
 		<div className="container-fluid">
-			<div className="row text-center">
-				<h1>Characters</h1>
+			<div className="row text-center container-type">
+				<h1 className="character">CHARACTERS</h1>
 			</div>
 			<div className="row marvel-card">
 				{
 					loading ? <Spinner /> 
-					: store.character.map(marvel => <Card key={marvel.id}/>)
+					: store.character.map(marvel => 
+					<Card 
+						key={marvel.id}
+						id={marvel.id}
+						img={`${marvel.thumbnail.path}/portrait_xlarge.jpg`}
+						title={marvel.name}
+					/>)
 				}
 			</div>
 		</div>
