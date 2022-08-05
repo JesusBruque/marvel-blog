@@ -5,6 +5,8 @@ import injectContext from "./store/appContext";
 
 //Views
 import Home from "./views/Home/Home.jsx";
+import Character from "./views/Character/Character.jsx";
+import Comic from "./views/Comic/Comic.jsx";
 import Info from "./views/Info/Info.jsx";
 
 //Layout
@@ -24,6 +26,12 @@ const AppRouter = () => {
 						<Switch>
 							<Route exact path="/">
 								<Home />
+							</Route>
+							<Route exact path="/characters">
+								<Character />
+							</Route>
+							<Route exact path="/comics">
+								<Comic />
 							</Route>
 							<Route exact path="/characters/:id/comics">
 								<Info />
