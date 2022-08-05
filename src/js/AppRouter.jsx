@@ -25,7 +25,7 @@ const AppRouter = () => {
 							<Route exact path="/">
 								<Home />
 							</Route>
-							<Route exact path="/info/:id">
+							<Route exact path="/characters/:id/comics">
 								<Info />
 							</Route>
 							<Route>

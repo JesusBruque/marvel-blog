@@ -13,7 +13,7 @@ const Card = (props) => {
                 <img src={props.img} className="card-img" alt="..."/>
             </div>
             <div className="container-button mt-2">
-                <Link to={`/info/${props.id}`} className="button btn btn-secondary">More information</Link>
+                <Link to={`/characters/${props.id}/comics`} className="button btn btn-secondary">More information</Link>
             </div>
         </div>
     )

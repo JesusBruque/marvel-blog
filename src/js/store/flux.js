@@ -1,34 +1,41 @@
-import { getCharacters } from "../service/marvel.js";
+import { getCharacters, getComicsById } from "../service/marvel.js";
 
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			character: [],
-			comic: []
+			comicByCharacter: []
 		},
 		actions: {
 			getCharacter: () => {
 				const store = getStore();
-				getCharacters()
-					.then(response => {
-						return response.json();
-					})
-					.then(json => {
-						setStore({ character: json.data.results });
-					})
-					.catch((err) => {
-						console.log(err);
-					});
+				if (store.character.length === 0) {
+					getCharacters()
+						.then(response => {
+							return response.json();
+						})
+						.then(json => {
+							setStore({ character: json.data.results });
+						})
+						.catch((err) => {
+							console.log(err);
+						});
+				}
 			},
-			getComic: () => {
+			getComicByCharacter: (id) => {
 				const store = getStore();
-				getCharacters()
-					.then(response => {
-						return response.json();
-					})
-					.then(json => {
-						setStore({ comic: json.data.results[id].comics})
-					})
+				if (store.comicByCharacter.length === 0) {
+					getComicsById(id)
+						.then(response => {
+							return response.json();
+						})
+						.then(json => {
+							setStore({ comicByCharacter: json.data.results})
+						})
+						.catch((err) => {
+							console.log(err);
+						});
+				}
 			}
 		}
 	};
