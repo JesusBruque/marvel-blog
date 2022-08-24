@@ -2,29 +2,22 @@ import React, { useEffect, useContext, useState } from "react";
 import { Context } from "../../store/appContext.js";
 import {useParams} from "react-router-dom";
 
-//Service
-import { getComicsById } from "../../service/marvel.js";
-
 //Components
 import Spinner from "../../component/Spinner/Spinner.jsx";
+import Slider from "../../component/Slider/Slider.jsx";
 
 const Info = () => {
-    const { id } = useParams();
+    const  {id} = useParams();
 
     const {store, actions} = useContext(Context);
-	console.log(store);
 
     const [loading, setLoading] = useState(false);
 
-    const comicsById = async (id) => {
+    const comicsById = async () => {
         try {
             setLoading(true);
-            const res = await getComicsById(id);
-            const json = await res.json();
-            console.log(json);
-            actions.getComicByCharacter(json.data);
-            actions.getCharacter(json.data);
-            console.log(store);
+            actions.getComicByCharacter(id);
+            
         } catch (err){
             console.log(err);
         } finally {
@@ -33,7 +26,7 @@ const Info = () => {
     }
 
     useEffect(() => {
-        comicsById(id);
+        comicsById();
     }, [])
 
 
@@ -42,12 +35,16 @@ const Info = () => {
             <div className="row text-center">
 				<h1 className="character">{store.character.name}</h1>
 			</div>
+            
             {
                 loading ? <Spinner /> 
                 : store.comicByCharacter.map((marvel) => 
-                    <ul>
-                        <li key={marvel.id}>{marvel.title}</li>
-                    </ul>
+                <Slider 
+						key={marvel.id}
+						id={marvel.id}
+						img={`${marvel.thumbnail.path}/portrait_xlarge.jpg`}
+						title={marvel.name}
+					/>
             )}
         </div>
     )

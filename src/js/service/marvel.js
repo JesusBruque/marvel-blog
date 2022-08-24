@@ -9,8 +9,7 @@ export const getCharacters = () => {
 }
 
 export const getComicsById = (id) => {
-    const url = `${URL}:443/v1/public/characters/1017100/comics?ts=1&apikey=f4fd4402353df0c24dc86227345cb0ee&hash=${hash}`;
-    console.log(url);
+    const url = `${URL}:443/v1/public/characters/${id}/comics?ts=1&apikey=f4fd4402353df0c24dc86227345cb0ee&hash=${hash}`;
     return fetch(url);
 }
 
@@ -19,4 +18,3 @@ export const getComics = () => {
     console.log(url);
     return fetch(url);
 }
-

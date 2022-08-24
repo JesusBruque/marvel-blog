@@ -2,9 +2,6 @@ import React, { useEffect, useContext, useState } from "react";
 import { Context } from "../../store/appContext.js";
 import "./character.css";
 
-//Service
-import {getCharacters} from "../../service/marvel.js";
-
 //Components
 import Card from "../../component/Card/Card.jsx";
 import Spinner from "../../component/Spinner/Spinner.jsx";
@@ -18,10 +15,7 @@ const Character = () => {
 	const characters = async () => {
 		try {
 			setLoading(true);
-			const res = await getCharacters();
-			const json = await res.json();
-			console.log(json);
-			actions.getCharacter(json.data);
+			actions.getCharacter();
 		} catch(err) {	
 			console.log(err);
 		} finally {
