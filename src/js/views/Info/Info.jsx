@@ -4,7 +4,6 @@ import {useParams} from "react-router-dom";
 
 //Components
 import Spinner from "../../component/Spinner/Spinner.jsx";
-import Slider from "../../component/Slider/Slider.jsx";
 
 const Info = () => {
     const  {id} = useParams();
@@ -36,16 +35,16 @@ const Info = () => {
 				<h1 className="character">{store.character.name}</h1>
 			</div>
             
-            {
+            {/* {
                 loading ? <Spinner /> 
                 : store.comicByCharacter.map((marvel) => 
                 <Slider 
 						key={marvel.id}
 						id={marvel.id}
-						img={`${marvel.thumbnail.path}/portrait_xlarge.jpg`}
+						img={`${marvel.thumbnail.path}/portrait_fantastic.jpg`}
 						title={marvel.name}
 					/>
-            )}
+            )} */}
         </div>
     )
 }
