@@ -21,7 +21,7 @@ const Comic = () => {
             const res = await getComics();
             const json = await res.json();
             console.log(json);
-            actions.getComic(json.data);
+            actions.setComic(json.data);
         } catch (err) {
             console.log(err);
         } finally {

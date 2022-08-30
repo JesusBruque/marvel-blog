@@ -14,8 +14,8 @@ const Character = () => {
 
 	const characters = async () => {
 		try {
-			setLoading(true);
-			actions.getCharacter();
+			 setLoading(true);
+			 actions.setCharacter();
 		} catch(err) {	
 			console.log(err);
 		} finally {
