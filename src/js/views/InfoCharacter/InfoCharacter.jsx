@@ -3,13 +3,13 @@ import { Context } from "../../store/appContext.js";
 import {useParams} from "react-router-dom";
 import { getCharactersById, getComicsById } from "../../service/marvel.js";
 
-import "./info.css";
+import "./infoCharacter.css";
 
 //Components
 import Spinner from "../../component/Spinner/Spinner.jsx";
 import Comic from "../../component/Comic/Comic.jsx";
 
-const Info = () => {
+const InfoCharacter = () => {
     const  {id} = useParams();
 
     const {store, actions} = useContext(Context);
@@ -54,45 +54,41 @@ const Info = () => {
             { loading ? <Spinner /> :
                 (
                 <div className="container-info">
-                    <div className="row text-center title-info">
-                        <h1 className="character">{store.characterById.name}</h1>
-                    </div>
-                    <div className="row">
-                        <div className="col-6">
+                    
+                    <div className="row my-3">
+                        <div className="container-img-info">
                             <img className="img-info" src={`${store.characterById.thumbnail.path}.jpg`}></img>
                         </div>
-                        <div className="container-comic">
-                            <div className="col-6 row horizontal-scroll">
-                            {
-                                store.comicByCharacter.map(marvel => 
-                                <Comic 
-                                    key={marvel.id}
-                                    id={marvel.id}
-                                    img={`${marvel.thumbnail.path}/portrait_xlarge.jpg`}
-                                />)
-                            }
+                        <div className="col ">
+                            <div className="title-info justify-content-center d-flex">
+                                <span>{store.characterById.name}</span>
                             </div>
-                        </div>
+                            <div className="text-center description-info">
+                                <span className="character">{store.characterById.description}</span>
+                            </div>
+                        </div> 
+                    </div>
+
+                    <h2>COMICS</h2>
+                    <div className="container-comic">
+                    
+                        {
+                            store.comicByCharacter.map(marvel => 
+                            <Comic
+                                key={marvel.id}
+                                id={marvel.id}
+                                img={`${marvel.thumbnail.path}/portrait_xlarge.jpg`}
+                            />)
+                        }
                         
                     </div>
                         
                 </div>
                 )
             }
-
-            {/* {
-                    loading ? <Spinner /> 
-                    : store.comicByCharacter.map((marvel) => 
-                    <Slider 
-                            key={marvel.id}
-                            id={marvel.id}
-                            img={`${marvel.thumbnail.path}/portrait_fantastic.jpg`}
-                            title={marvel.name}
-                        />
-                )} */}
         </>
         
     )
 }
 
-export default Info;
+export default InfoCharacter;

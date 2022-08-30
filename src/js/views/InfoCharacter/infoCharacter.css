@@ -1,0 +1,59 @@
+.container-info{
+    background-color: black;
+}
+
+.title-info{
+    text-align: center;
+    width: 550px;
+    color: white;
+    margin: 50px;
+    padding: auto;
+}
+
+.title-info > span {
+    font-size: 60px;
+}
+
+.description-info {
+    width: 550px;
+    color: white;
+    margin: 50px;
+    padding: auto;
+    
+}
+
+.description-info > span {
+    font-size: medium;
+}
+
+.container-img-info{
+    width: 30%;
+    margin: 50px;
+    padding: auto;
+}
+
+.img-info {
+    margin: 20px;
+    width: 300px;
+    height: 400px;
+    margin: auto;
+    padding: auto;
+    align-self: flex-start;
+}
+
+.container-comic{
+    height: 280px;
+    width: 835px;
+    overflow-y: hidden; 
+    overflow-x: auto;
+    gap: 10px;
+    margin-left: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    white-space: nowrap;
+}
+
+h2 {
+    margin-left: 50px;
+    color: white;
+}

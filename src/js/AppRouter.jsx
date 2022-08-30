@@ -4,10 +4,9 @@ import ScrollToTop from "./component/scrollToTop";
 import injectContext from "./store/appContext";
 
 //Views
-import Home from "./views/Home/Home.jsx";
 import Character from "./views/Character/Character.jsx";
-import Comic from "./views/Comic/Comic.jsx";
-import Info from "./views/Info/Info.jsx";
+import InfoCharacter from "./views/InfoCharacter/InfoCharacter.jsx";
+import InfoComic from "./views/InfoComic/InfoComic.jsx";
 
 //Layout
 import Layout from "./Layout/Layout.jsx";
@@ -24,18 +23,16 @@ const AppRouter = () => {
 				<ScrollToTop>
 					<Layout>
 						<Switch>
-							<Route exact path="/">
-								<Home />
-							</Route>
 							<Route exact path="/characters">
 								<Character />
 							</Route>
-							<Route exact path="/comics">
-								<Comic />
-							</Route>
 							<Route exact path="/characters/:id/comics">
-								<Info />
+								<InfoCharacter />
 							</Route>
+							<Route exact path="/comics/:comicId">
+								<InfoComic />
+							</Route>
+
 							<Route>
 								<h1>Not found!</h1>
 							</Route>

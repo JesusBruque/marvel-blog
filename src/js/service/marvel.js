@@ -4,13 +4,11 @@ let hash = md5("1df8550560530a94fc37acf5a459c55c5320cd0ccf4fd4402353df0c24dc8622
 
 export const getCharacters = () => {
     const url = `${URL}:443/v1/public/characters?ts=1&apikey=f4fd4402353df0c24dc86227345cb0ee&hash=${hash}`;
-    console.log(url);
     return fetch(url);
 }
 
 export const getCharactersById = (id) => {
     const url = `${URL}:443/v1/public/characters/${id}?ts=1&apikey=f4fd4402353df0c24dc86227345cb0ee&hash=${hash}`;
-    console.log(url);
     return fetch(url);
 }
 
@@ -19,7 +17,8 @@ export const getComicsById = (id) => {
     return fetch(url);
 }
 
-export const getComics = () => {
-    const url = `${URL}:443/v1/public/comics?ts=1&apikey=f4fd4402353df0c24dc86227345cb0ee&hash=${hash}`;
+export const getInfoComic = (comicId) => {
+    const url = `${URL}:443/v1/public/comics/${comicId}?ts=1&apikey=f4fd4402353df0c24dc86227345cb0ee&hash=${hash}`;
+    console.log(url);
     return fetch(url);
 }

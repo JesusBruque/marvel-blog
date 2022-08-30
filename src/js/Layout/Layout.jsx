@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import { Navbar } from "./Navbar/Navbar.jsx";
-import { Footer } from "./Footer/Footer.jsx";
 
 const Layout = (props) => {
     return (
@@ -14,10 +13,6 @@ const Layout = (props) => {
             <div>
                 {props.children}
             </div>                      
-
-            <footer>
-                <Footer />
-            </footer>
         </>
     )
 };

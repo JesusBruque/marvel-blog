@@ -29,9 +29,6 @@ const Character = () => {
 
 	return (
 		<div className="container-fluid">
-			<div className="row text-center container-type">
-				<h1 className="character">CHARACTERS</h1>
-			</div>
 			<div className="row marvel-card">
 				{
 					loading ? <Spinner /> 
