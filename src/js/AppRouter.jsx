@@ -32,7 +32,6 @@ const AppRouter = () => {
 							<Route exact path="/comics/:comicId">
 								<InfoComic />
 							</Route>
-
 							<Route>
 								<h1>Not found!</h1>
 							</Route>

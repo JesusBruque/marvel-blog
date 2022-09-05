@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useState } from "react";
 import { Context } from "../../store/appContext.js";
 import {useParams} from "react-router-dom";
-import { getCharactersById, getComicsById } from "../../service/marvel.js";
+import { getCharactersById, getComicsById } from "../../service/character.js";
 
 import "./infoCharacter.css";
 
@@ -13,7 +13,6 @@ const InfoCharacter = () => {
     const  {id} = useParams();
 
     const {store, actions} = useContext(Context);
-    console.log(store);
 
     const [loading, setLoading] = useState(true);
 
@@ -76,7 +75,7 @@ const InfoCharacter = () => {
                             store.comicByCharacter.map(marvel => 
                             <Comic
                                 key={marvel.id}
-                                id={marvel.id}
+                                comicId={marvel.id}
                                 img={`${marvel.thumbnail.path}/portrait_xlarge.jpg`}
                             />)
                         }

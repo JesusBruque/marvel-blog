@@ -1,6 +1,4 @@
-import { getCharacters } from "../service/marvel.js";
-
-const getState = ({ getStore, getActions, setStore }) => {
+const getState = ({ getStore, setStore }) => {
 	return {
 		store: {
 			character: [],
@@ -9,20 +7,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			comicByCharacter: []
 		},
 		actions: {
-			setCharacter: () => {
-				const store = getStore();
-				if (store.character.length === 0) {
-					getCharacters()
-						.then(response => {
-							return response.json();
-						})
-						.then(json => {
-							setStore({ character: json.data.results });
-						})
-						.catch((err) => {
-							console.log(err);
-						});
-				}
+			setCharacter: (character) => {
+				setStore({character: character.results})
 			},
 			setCharacterById: (characterById) => {
 				setStore({characterById: characterById.results[0]})
@@ -31,7 +17,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({comicByCharacter: comicByCharacter.results})
 			},
 			setInfoComic: (infoComic) => {
-				setStore({infoComic: infoComic.results})
+				setStore({infoComic: infoComic.results[0]})
 			}
 		}
 	};

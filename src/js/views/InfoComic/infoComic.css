@@ -1,0 +1,37 @@
+.container-info-comic {
+    background-color: white;
+}
+
+.title-info-comic {
+    text-align: center;
+    width: 550px;
+    color: black;
+    margin: 50px;
+    padding: auto;
+}
+
+.name-comic {
+    font-size: 40px;
+}
+
+.description-info-comic {
+    width: 550px;
+    color: black;
+    margin: 50px;
+    padding: auto;
+}
+
+.description-info-comic > span {
+    font-size: small;
+}
+
+.details {
+    color: white;
+    margin-left: 50px;
+}
+
+.details > span {
+    background-color: black;
+    padding: 5px;
+    border-radius: 5px;
+}

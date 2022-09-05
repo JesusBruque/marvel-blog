@@ -1,5 +1,6 @@
 import React, { useEffect, useContext, useState } from "react";
 import { Context } from "../../store/appContext.js";
+import { getCharacters } from "../../service/character.js";
 import "./character.css";
 
 //Components
@@ -8,14 +9,15 @@ import Spinner from "../../component/Spinner/Spinner.jsx";
 
 const Character = () => {
 	const {store, actions} = useContext(Context);
-	console.log(store);
-
+	
 	const [loading, setLoading] = useState(false);
 
 	const characters = async () => {
 		try {
-			 setLoading(true);
-			 actions.setCharacter();
+			setLoading(true);
+			const res = await getCharacters();
+            const json = await res.json();
+			actions.setCharacter(json.data);
 		} catch(err) {	
 			console.log(err);
 		} finally {
