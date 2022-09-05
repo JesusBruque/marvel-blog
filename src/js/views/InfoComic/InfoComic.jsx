@@ -1,29 +1,26 @@
 import React, { useEffect, useContext, useState} from "react";
 import { Context } from "../../store/appContext.js";
 import {useParams} from "react-router-dom";
-import { getInfoComic } from "../../service/comic.js";
+import { getInfoComic, getCharacterByComic } from "../../service/comic.js";
 
 import "./infoComic.css";
 
 //Components
 import Spinner from "../../component/Spinner/Spinner.jsx";
+import Comic from "../../component/Comic/Comic.jsx";
 
 const InfoComic = () => {
-    const { comicId } = useParams;
-    console.log("params", comicId)
+    const { comicId } = useParams();
 
     const { store, actions } = useContext(Context);
     console.log(store)
 
-    const [ loading, setLoading ] = useState(false)
+    const [ loading, setLoading ] = useState(true)
 
     const infoComicById = async () => {
         try {
-            setLoading(true);
             const res = await getInfoComic(comicId);
-            console.log("res", res)
             const json = await res.json();
-            console.log("json", json)
             actions.setInfoComic(json.data);
         } catch (err){
             console.log(err);
@@ -33,8 +30,21 @@ const InfoComic = () => {
         
     }
 
+    const charactersComic = async () => {
+        try{
+            const res = await getCharacterByComic(comicId);
+            const json = await res.json();
+            actions.setCharacterByComic(json.data);
+        } catch (err){
+            console.log(err);
+        } finally {
+            setLoading(false)
+        }
+    }
+
     useEffect(() => {
         infoComicById();
+        charactersComic();
     }, [])
 
 
@@ -46,21 +56,37 @@ const InfoComic = () => {
                     
                     <div className="row my-3">
                         <div className="container-img-info">
-                            {/* <img className="img-info" src={`${store.infoComic.thumbnail.path}.jpg`}></img> */}
+                            <img className="img-info" src={`${store.infoComic.thumbnail.path}.jpg`}></img>
                         </div>
                         <div className="col ">
                             <div className="title-info-comic justify-content-center d-flex">
                                 <div className="name-comic">{store.infoComic.title}</div>
                             </div>
                             <div className="details">
-                                <span>Number of pages: {store.infoComic.pageCount}</span>
+                                {
+                                    store.infoComic.pageCount == 0 
+                                        ? <div></div> 
+                                        :<span>Number of pages: {store.infoComic.pageCount}</span>
+                                }
+                                
                             </div>
                             <div className="text-center description-info-comic">
                                 <span className="character">{store.infoComic.description}</span>
                             </div>
                         </div> 
                     </div>
-                        
+                    <h2>CHARACTERS</h2>
+                    <div className="container-comic">
+                    
+                        {
+                            store.characterByComic.map(marvel => 
+                            <Comic
+                                key={marvel.id}
+                                comicId={marvel.id}
+                                img={`${marvel.thumbnail.path}/portrait_xlarge.jpg`}
+                            />)
+                        }
+                    </div>   
                 </div>
                 )
             }

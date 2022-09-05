@@ -4,7 +4,8 @@ const getState = ({ getStore, setStore }) => {
 			character: [],
 			characterById: [],
 			infoComic: [],
-			comicByCharacter: []
+			comicByCharacter: [],
+			characterByComic: []
 		},
 		actions: {
 			setCharacter: (character) => {
@@ -18,7 +19,11 @@ const getState = ({ getStore, setStore }) => {
 			},
 			setInfoComic: (infoComic) => {
 				setStore({infoComic: infoComic.results[0]})
+			},
+			setCharacterByComic: (characterByComic) => {
+				setStore({characterByComic: characterByComic.results})
 			}
+
 		}
 	};
 };
