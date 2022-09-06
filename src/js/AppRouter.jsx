@@ -23,7 +23,7 @@ const AppRouter = () => {
 				<ScrollToTop>
 					<Layout>
 						<Switch>
-							<Route exact path="/characters">
+							<Route exact path="/">
 								<Character />
 							</Route>
 							<Route exact path="/characters/:id/comics">

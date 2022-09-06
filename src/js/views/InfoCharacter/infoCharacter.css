@@ -1,5 +1,11 @@
+.container-infoCharacter{
+    display: flex;
+}
+
 .container-info{
+    width: 1200px;
     background-color: black;
+    margin: auto;
 }
 
 .title-info{
@@ -12,6 +18,11 @@
 
 .title-info > span {
     font-size: 60px;
+}
+
+.container-details {
+    width: 550px;
+    height: 400px;
 }
 
 .description-info {
@@ -42,18 +53,16 @@
 }
 
 .container-comic{
+    margin: auto;
     height: 280px;
     width: 835px;
     overflow-y: hidden; 
     overflow-x: auto;
     gap: 10px;
-    margin-left: 50px;
-    margin-top: 20px;
-    margin-bottom: 20px;
     white-space: nowrap;
 }
 
 h2 {
     margin-left: 50px;
-    color: white;
+    color: black;
 }

@@ -36,7 +36,12 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['*', '.js']
+    extensions: ['*', '.js'],
+    
+    alias: {
+    '@mui/styled-engine': '@mui/styled-engine-sc'
+    },
+
   },
   plugins: [
     new HtmlWebpackPlugin({

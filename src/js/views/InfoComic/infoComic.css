@@ -1,5 +1,21 @@
+.container-infoComic {
+    display: flex;
+}
+
 .container-info-comic {
+    margin: auto;
     background-color: white;
+}
+
+.container-img-info{
+    width: 30%;
+    margin: 50px;
+    padding: auto;
+}
+
+.container-details {
+    width: 550px;
+    height: 400px;
 }
 
 .title-info-comic {
@@ -34,4 +50,14 @@
     background-color: black;
     padding: 5px;
     border-radius: 5px;
+}
+
+.container-comic{
+    margin: auto;
+    height: 280px;
+    width: 835px;
+    overflow-y: hidden; 
+    overflow-x: auto;
+    gap: 10px;
+    white-space: nowrap;
 }
