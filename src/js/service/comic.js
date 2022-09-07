@@ -7,6 +7,5 @@ export const getInfoComic = (comicId) => {
 
 export const getCharacterByComic = (comicId) => {
     const url = `${URL}:443/v1/public/comics/${comicId}/characters?ts=1&apikey=f4fd4402353df0c24dc86227345cb0ee&hash=${hash}`;
-    console.log(url);
     return fetch(url);
 }

@@ -13,7 +13,6 @@ const InfoComic = () => {
     const { comicId } = useParams();
 
     const { store, actions } = useContext(Context);
-    console.log(store)
 
     const [loading, setLoading] = useState(true)
 

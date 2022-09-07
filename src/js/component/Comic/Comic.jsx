@@ -8,7 +8,7 @@ const Comic = (props) => {
 
     return (
         <div className="card card-comic d-inline-block m-2">
-            <Link to={`/comics/${props.comicId}`}><img src={props.img} className="card-img"/></Link>
+            <Link to={`/comics/${props.comicId}`}><img src={props.img}/></Link>
         </div>
     )
 }

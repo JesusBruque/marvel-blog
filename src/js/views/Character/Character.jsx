@@ -3,6 +3,8 @@ import { Context } from "../../store/appContext.js";
 import { getCharacters } from "../../service/character.js";
 import { Pagination } from '@mui/material';
 
+export const [page, setPage] = useState(1)
+
 import "./character.css";
 
 //Components
@@ -13,7 +15,7 @@ const Character = () => {
 	const { store, actions } = useContext(Context);
 
 	const [loading, setLoading] = useState(false);
-
+	
 	const characters = async () => {
 		try {
 			setLoading(true);
@@ -27,9 +29,14 @@ const Character = () => {
 		}
 	}
 
+	const handlepage = () => {
+
+	}
+
 	useEffect(() => {
 		characters();
-	}, [])
+		handlepage();
+	}, [page])
 
 	return (
 		<>
@@ -37,7 +44,7 @@ const Character = () => {
 				loading ? <Spinner />
 					: <div className="container-fluid">
 						<div className="d-flex">
-							<Pagination className="mx-auto my-4" count={10} showFirstButton showLastButton />
+							<Pagination className="mx-auto my-4" count={53} showFirstButton showLastButton />
 						</div>
 						<div className="row marvel-card">
 
@@ -52,7 +59,7 @@ const Character = () => {
 							}
 						</div>
 						<div className="d-flex">
-							<Pagination className="mx-auto my-4" count={10} showFirstButton showLastButton />
+							<Pagination className="mx-auto" count={53} showFirstButton showLastButton />
 						</div>
 
 					</div>
