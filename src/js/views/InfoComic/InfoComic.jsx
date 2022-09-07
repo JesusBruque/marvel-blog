@@ -18,9 +18,12 @@ const InfoComic = () => {
 
     const infoComicById = async () => {
         try {
+            
             const res = await getInfoComic(comicId);
+            if (res.status == 200) {
             const json = await res.json();
             actions.setInfoComic(json.data);
+            }
         } catch (err) {
             console.log(err);
         } finally {

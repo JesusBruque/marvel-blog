@@ -1,8 +1,7 @@
 import { hash, URL } from "./index.js";
-import { page } from "../views/Character/Character.jsx";
 
 export const getCharacters = () => {
-    const url = `${URL}:443/v1/public/characters?orderBy=name&limit=30&ts=1&apikey=f4fd4402353df0c24dc86227345cb0ee&hash=${hash}`;
+    const url = `${URL}:443/v1/public/characters?orderBy=name&limit=100&ts=1&apikey=f4fd4402353df0c24dc86227345cb0ee&hash=${hash}`;
     return fetch(url);
 }
 

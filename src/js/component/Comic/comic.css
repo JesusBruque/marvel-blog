@@ -1,4 +1,15 @@
 .card-comic {
     background-color: black;
     border-radius: 5px;
+    justify-content: end;
+    text-align: center;
 }
+
+.card-img-small {
+    width: 250px;
+    height: 325px;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+

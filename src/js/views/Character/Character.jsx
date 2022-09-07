@@ -3,8 +3,6 @@ import { Context } from "../../store/appContext.js";
 import { getCharacters } from "../../service/character.js";
 import { Pagination } from '@mui/material';
 
-export const [page, setPage] = useState(1)
-
 import "./character.css";
 
 //Components
@@ -15,6 +13,7 @@ const Character = () => {
 	const { store, actions } = useContext(Context);
 
 	const [loading, setLoading] = useState(false);
+	const [page, setPage] = useState(1)
 	
 	const characters = async () => {
 		try {

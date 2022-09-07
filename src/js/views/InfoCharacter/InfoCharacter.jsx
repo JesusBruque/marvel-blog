@@ -75,6 +75,7 @@ const InfoCharacter = () => {
                                         <Comic
                                             key={marvel.id}
                                             comicId={marvel.id}
+                                            title={marvel.title}
                                             img={`${marvel.thumbnail.path}/portrait_xlarge.jpg`}
                                         />)
                                 }

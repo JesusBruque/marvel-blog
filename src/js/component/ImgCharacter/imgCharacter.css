@@ -1,7 +1,7 @@
-.card-character {
+.card-img-small {
     width: 150px;
     height: 225px;
     margin: 0;
     padding: 0;
-
+    border: none;
 }
