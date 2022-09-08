@@ -14,15 +14,15 @@ const InfoComic = () => {
 
     const { store, actions } = useContext(Context);
 
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true);
 
     const infoComicById = async () => {
         try {
-            
+
             const res = await getInfoComic(comicId);
             if (res.status == 200) {
-            const json = await res.json();
-            actions.setInfoComic(json.data);
+                const json = await res.json();
+                actions.setInfoComic(json.data);
             }
         } catch (err) {
             console.log(err);
@@ -68,8 +68,19 @@ const InfoComic = () => {
                                         {
                                             store.infoComic.pageCount == 0
                                                 ? <div></div>
-                                                : <span>Number of pages: {store.infoComic.pageCount}</span>
+                                                : <span className="mx-2 p-1">Number of pages: {store.infoComic.pageCount}</span>
                                         }
+                                        <span className="mx-2 p-1">
+                                            Price :{" "}
+                                            {"$" + store.infoComic.prices.find((price) => price.type === "printPrice")?.price ||
+                                                "-"}
+                                        </span>
+                                        <span className="mx-2 p-1">
+                                            On sale date :{" "}
+                                            {store.infoComic.dates.find((date) => date.type === "onsaleDate")?.date ||
+                                                "-"}
+                                        </span>
+
 
                                     </div>
                                     <div className="text-center description-info-comic">

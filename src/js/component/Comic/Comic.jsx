@@ -18,6 +18,7 @@ const Comic = (props) => {
                         : 
                 } */}
                 <img src={props.img} className="card-img-small"/>
+                
             </Link>
         </div>
     )
