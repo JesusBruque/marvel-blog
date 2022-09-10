@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 import "./comic.css";
 
 const Comic = (props) => {
-    console.log(props)
 
     const notAvailable = "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available/portrait_xlarge.jpg"
 

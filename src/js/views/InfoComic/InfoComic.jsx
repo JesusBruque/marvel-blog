@@ -15,6 +15,7 @@ const InfoComic = () => {
     const { store, actions } = useContext(Context);
 
     const [loading, setLoading] = useState(true);
+    const [onSaleDate, setOnSaleDate] = useState("");
 
     const infoComicById = async () => {
         try {
@@ -23,6 +24,7 @@ const InfoComic = () => {
             if (res.status == 200) {
                 const json = await res.json();
                 actions.setInfoComic(json.data);
+                setOnSaleDate(json.data.results[0].dates[0].date);
             }
         } catch (err) {
             console.log(err);
@@ -48,7 +50,6 @@ const InfoComic = () => {
         infoComicById();
         charactersComic();
     }, [])
-
 
     return (
         <>
@@ -76,9 +77,8 @@ const InfoComic = () => {
                                                 "-"}
                                         </span>
                                         <span className="mx-2 p-1">
-                                            On sale date :{" "}
-                                            {store.infoComic.dates.find((date) => date.type === "onsaleDate")?.date ||
-                                                "-"}
+                                            Published :{" "}
+                                            {onSaleDate ? new Date(onSaleDate).toLocaleDateString() : "-"}
                                         </span>
 
 
