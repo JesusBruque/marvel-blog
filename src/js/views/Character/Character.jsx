@@ -14,10 +14,11 @@ const Character = () => {
 
 	const [loading, setLoading] = useState(false);
 	
+	
 	const characters = async () => {
 		try {
 			setLoading(true);
-			const res = await getCharacters();
+			const res = await getCharacters()
 			const json = await res.json();
 			actions.setCharacter(json.data);
 		} catch (err) {
@@ -53,7 +54,12 @@ const Character = () => {
 							}
 						</div>
 						<div className="d-flex">
-							<Pagination className="mx-auto" count={53} showFirstButton showLastButton />
+							<Pagination 
+								className="mx-auto"
+								count={53} 
+								showFirstButton 
+								showLastButton 
+							/>
 						</div>
 
 					</div>

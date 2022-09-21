@@ -6,28 +6,28 @@ import "./navbar.css";
 export const Navbar = () => {
 
 	const { store, actions } = useContext(Context);
-	console.log(store);
 
 	const [ copyCharacter, setCopyCharacter ] = useState([]);
 
 	useEffect(() => {
-		setCopyCharacter(store.character)
+		setCopyCharacter(store.character);
 	}, [store.character])
 
 	const handleChange = (e) => {
-		const search = e.target.value
-		console.log(search)
+		const search = e.target.value;
+		
 		if(search === ""){
 			actions.setCharacter(copyCharacter)
+			
 		} else {
 			const filterCharacter = store.character.filter((marvel) => {
-				const nameMarvel = store.character.name;
+				const nameMarvel = marvel.name;
 				if(nameMarvel.toLowerCase().indexOf(search.toLowerCase()) >= 0){
-					return character;
+					return marvel;
 				}
 			})
-			console.log(filterCharacter)
-			//actions.setCharacter(filterCharacter)
+			
+			actions.setCharacter(filterCharacter)
 		}
 	} 
 
