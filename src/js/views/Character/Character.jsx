@@ -13,7 +13,6 @@ const Character = () => {
 	const { store, actions } = useContext(Context);
 
 	const [loading, setLoading] = useState(false);
-	const [page, setPage] = useState(1)
 	
 	const characters = async () => {
 		try {
@@ -28,14 +27,10 @@ const Character = () => {
 		}
 	}
 
-	const handlepage = () => {
-
-	}
 
 	useEffect(() => {
 		characters();
-		handlepage();
-	}, [page])
+	}, [])
 
 	return (
 		<>
