@@ -11,12 +11,23 @@ const ImgCharacter = (props) => {
     return (
         <div className="card card-character d-inline-block m-2">
             <Link to={`/characters/${props.comicId}/comics`}>
-                {/* {
+                {
                     props.img !== notAvailable
-                        ? <img src={props.img} className="card-img-small"/>
-                        : <br></br>
-                } */}
-                <img src={props.img} className="card-img-small"/>
+                        ? <>
+                            <img src={props.img} className="card-img-small"/>
+                            <div className="container-name">
+                                <div className="card-name">{props.name}</div>
+                            </div>
+                        </>
+                        : <>
+                            <img src={"https://i.pinimg.com/originals/c9/37/6b/c9376b4acaa7dfdd06cce284aa1084b5.jpg"} className="card-img-small"/>
+                            <div className="container-name">
+                                <div className="card-name">{props.name}</div>
+                            </div>
+                        </>
+
+                }
+                
             </Link>
         </div>
     )
@@ -24,7 +35,8 @@ const ImgCharacter = (props) => {
 
 ImgCharacter.propTypes = {
     comicId: PropTypes.number,
-    img: PropTypes.string
+    img: PropTypes.string,
+    name: PropTypes.string
 }
 
 export default ImgCharacter;

@@ -5,3 +5,16 @@
     padding: 0;
     border: none;
 }
+
+.card-name {
+    color: black;
+    margin: auto;
+    font-size: x-small;
+}
+
+.container-name {
+    z-index: 1;
+    text-align: center;
+    justify-content: center;
+    background-color: white;
+}

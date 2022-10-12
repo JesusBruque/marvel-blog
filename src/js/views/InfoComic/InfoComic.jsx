@@ -95,6 +95,7 @@ const InfoComic = () => {
                                     store.characterByComic.map(marvel =>
                                         <ImgCharacter
                                             key={marvel.id}
+                                            name={marvel.name}
                                             comicId={marvel.id}
                                             img={`${marvel.thumbnail.path}/portrait_xlarge.jpg`}
                                         />)

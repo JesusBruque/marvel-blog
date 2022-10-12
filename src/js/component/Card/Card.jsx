@@ -1,13 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Heart from "react-heart";
+import { Context } from "../../store/appContext.js";
 
 import "./card.css";
 
 const Card = (props) => {
 
+    const { store, actions } = useContext(Context)
     const [active, setActive] = useState(false);
+
+    const addFavourites = () => {
+        actions.setCharacter(json.data)
+    }
+
+    
 
     return (
         

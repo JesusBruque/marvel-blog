@@ -2,6 +2,7 @@ import React, { useEffect, useContext, useState } from "react";
 import { Context } from "../../store/appContext.js";
 import { getCharacters } from "../../service/character.js";
 import { Pagination } from '@mui/material';
+import red from "@material-ui/core/colors/red";
 
 import "./character.css";
 
@@ -11,14 +12,14 @@ import Spinner from "../../component/Spinner/Spinner.jsx";
 
 const Character = () => {
 	const { store, actions } = useContext(Context);
-
+	const [currentPage, setCurrentPage] = useState(1)
 	const [loading, setLoading] = useState(false);
 	
 	
 	const characters = async () => {
 		try {
 			setLoading(true);
-			const res = await getCharacters()
+			const res = await getCharacters(currentPage)
 			const json = await res.json();
 			actions.setCharacter(json.data);
 		} catch (err) {
@@ -28,10 +29,9 @@ const Character = () => {
 		}
 	}
 
-
 	useEffect(() => {
 		characters();
-	}, [])
+	}, [currentPage])
 
 	return (
 		<>
@@ -39,7 +39,15 @@ const Character = () => {
 				loading ? <Spinner />
 					: <div className="container-fluid">
 						<div className="d-flex">
-							<Pagination className="mx-auto my-4" count={53} showFirstButton showLastButton />
+							<Pagination 
+								className="mx-auto my-4" 
+								count={15} 
+								showFirstButton 
+								showLastButton
+								page={currentPage}
+								defaultPage={1}
+								onChange={(event, value) => setCurrentPage(value)}
+							/>
 						</div>
 						<div className="row marvel-card">
 
@@ -56,9 +64,12 @@ const Character = () => {
 						<div className="d-flex">
 							<Pagination 
 								className="mx-auto"
-								count={53} 
+								count={15} 
 								showFirstButton 
-								showLastButton 
+								showLastButton
+								page={currentPage}
+								defaultPage={1}
+								onChange={(event, value) => setCurrentPage(value)}
 							/>
 						</div>
 
