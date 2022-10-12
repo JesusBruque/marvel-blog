@@ -5,7 +5,8 @@ const getState = ({ getStore, setStore }) => {
 			characterById: [],
 			infoComic: [],
 			comicByCharacter: [],
-			characterByComic: []
+			characterByComic: [],
+			favourite: []
 		},
 		actions: {
 			setCharacter: (character) => {
@@ -22,8 +23,10 @@ const getState = ({ getStore, setStore }) => {
 			},
 			setCharacterByComic: (characterByComic) => {
 				setStore({characterByComic: characterByComic.results})
+			},
+			setFavourite: (favourite) => {
+				setStore({favourite: favourite.results})
 			}
-
 		}
 	};
 };
