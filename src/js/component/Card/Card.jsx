@@ -10,9 +10,15 @@ const Card = (props) => {
 
     const { store, actions } = useContext(Context)
     const [active, setActive] = useState(false);
+    const [favourites, setFavourites] = useState([])
 
     const addFavourites = () => {
-        actions.setCharacter(json.data)
+        setActive(!active)
+        console.log(active);
+        if (active === false){
+            setFavourites(props.title);
+            console.log(favourites)
+        }
     }
 
     
@@ -21,7 +27,7 @@ const Card = (props) => {
         
             <div className="card card-marvel">
                 <div className="heart">
-                    <Heart isActive={active} onClick={() => setActive(!active)} style = {{fill: active ? "red" : "black", stroke: active ? "black":"white"}} animationScale = {1.2} animationTrigger = "both" animationDuration = {.2} className = {`customHeart${active ? " active": ""}`}/>
+                    <Heart isActive={active} onClick={addFavourites} style = {{fill: active ? "red" : "black", stroke: active ? "black":"white"}} animationScale = {1.2} animationTrigger = "both" animationDuration = {.2} className = {`customHeart${active ? " active": ""}`}/>
                 </div>
                 <Link to={`/characters/${props.id}/comics`} className="card card-marvel">
                 {
@@ -30,7 +36,7 @@ const Card = (props) => {
                         : <img src={props.img} className="card-img" />
                 }
                 <div className="container-title">
-                    <h5 className="card-title">{props.title}</h5>
+                    <div className="card-title">{props.title}</div>
                 </div>
                 </Link>
 

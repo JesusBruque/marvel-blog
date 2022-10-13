@@ -2,7 +2,6 @@ import React, { useEffect, useContext, useState } from "react";
 import { Context } from "../../store/appContext.js";
 import { getCharacters } from "../../service/character.js";
 import { Pagination } from '@mui/material';
-import red from "@material-ui/core/colors/red";
 
 import "./character.css";
 
@@ -63,7 +62,7 @@ const Character = () => {
 						</div>
 						<div className="d-flex">
 							<Pagination 
-								className="mx-auto"
+								className="mx-auto mb-4"
 								count={15} 
 								showFirstButton 
 								showLastButton

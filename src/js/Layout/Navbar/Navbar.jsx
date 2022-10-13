@@ -6,12 +6,7 @@ import "./navbar.css";
 export const Navbar = () => {
 
 	const { store, actions } = useContext(Context);
-
 	const [ copyCharacter, setCopyCharacter ] = useState([]);
-
-	useEffect(() => {
-		setCopyCharacter(store.character);
-	}, [store.character])
 
 	const handleChange = (e) => {
 		const search = e.target.value;
@@ -27,9 +22,13 @@ export const Navbar = () => {
 				}
 			})
 			
-			actions.setCharacter(filterCharacter)
+			actions.setCharacter(filterCharacter);
 		}
 	} 
+
+	useEffect(() => {
+		setCopyCharacter(store.character);
+	}, [store.character])
 
 	return (
 		<nav className="navbar navbar-expand-lg navbar-light bg-light">

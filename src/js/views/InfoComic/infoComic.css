@@ -54,7 +54,8 @@
 
 .container-comic{
     margin: auto;
-    height: 280px;
+    margin-bottom: 50px;
+    height: 300px;
     width: 835px;
     overflow-y: hidden; 
     overflow-x: auto;
