@@ -13,13 +13,13 @@ const ImgCharacter = (props) => {
             <Link to={`/characters/${props.comicId}/comics`}>
                 {
                     props.img !== notAvailable
-                        ? <div className="container-card-character">
-                            <img src={props.img} className="card-img-small"/>
-                            <div className="card-name">{props.name}</div>
+                        ? <div className="container container-card-character">
+                            <img src={props.img} className="card-img-small front"/>
+                            <div className="card-name back">{props.name}</div>
                         </div>
-                        : <div className="container-card-character">
-                            <img src={"https://i.pinimg.com/originals/c9/37/6b/c9376b4acaa7dfdd06cce284aa1084b5.jpg"} className="card-img-small"/>                           
-                            <div className="card-name">{props.name}</div>
+                        : <div className="container container-card-character">
+                            <img src={"https://i.pinimg.com/originals/c9/37/6b/c9376b4acaa7dfdd06cce284aa1084b5.jpg"} className="card-img-small front"/>                          
+                            <div className="card-name back">{props.name}</div>
                         </div>
 
                 }
