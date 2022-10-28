@@ -21,7 +21,6 @@ const ImgCharacter = (props) => {
                             <img src={"https://i.pinimg.com/originals/c9/37/6b/c9376b4acaa7dfdd06cce284aa1084b5.jpg"} className="card-img-small front"/>                          
                             <div className="card-name back">{props.name}</div>
                         </div>
-
                 }
                 
             </Link>

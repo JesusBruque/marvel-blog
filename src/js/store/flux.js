@@ -24,8 +24,9 @@ const getState = ({ getStore, setStore }) => {
 			setCharacterByComic: (characterByComic) => {
 				setStore({characterByComic: characterByComic.results})
 			},
-			setFavourite: (favourite) => {
-				setStore({favourite: favourite.results})
+			setFavourite: (fav) => {
+				const store = getStore();
+				setStore({...store, favourite: fav})
 			}
 		}
 	};

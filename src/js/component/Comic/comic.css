@@ -1,11 +1,69 @@
-.card-comic {
-    background-color: black;
-    border-radius: 5px;
-}
-
 .card-img-small {
-    width: 150px;
     margin: 0;
     padding: 0;
     border: none;
+}
+
+.container-card-character {
+    display: flex;
+}
+
+.card-denomination {
+    color: black;
+    margin: auto;
+    font-size: medium;
+    font-weight: bold;
+    padding-top: auto;
+    text-align: center;
+    white-space: pre-line;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+}
+
+.card-denomination::before {
+    content: "";
+    position: absolute;
+    background-image: url('https://w0.peakpx.com/wallpaper/980/766/HD-wallpaper-marvel-sky-edited-full-logo-logos-night-star-stars-universe.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.5;
+    width: 150px;
+    height: 225px;
+}
+
+a {
+    text-decoration:none
+}
+
+.front, .back, .container {
+    width: 150px;
+    height: 225px;
+}
+.front, .back {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.front {
+    z-index: 2;
+    transition: all 0.3s linear;
+}
+.back {
+    transition: all 0.3s linear;
+    transform: rotateY(180deg);
+}
+.container {
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+.container:hover .front {
+    transform: rotateY(180deg);
+}
+.container:hover .back {
+    transform: rotateY(360deg);
 }

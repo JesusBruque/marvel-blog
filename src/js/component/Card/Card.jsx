@@ -10,24 +10,41 @@ const Card = (props) => {
 
     const { store, actions } = useContext(Context)
     const [active, setActive] = useState(false);
-    const [favourites, setFavourites] = useState([])
 
-    const addFavourites = () => {
-        setActive(!active)
-        console.log(active);
-        if (active === false){
-            setFavourites(props.title);
-            console.log(favourites)
+    const clickHeart = () => {
+        if (active) {
+            setActive(false)
+            deleteFavourite()
+        } else {
+            setActive(true)
+            addFavourite()
         }
     }
 
-    
+    const addFavourite = () => {
+        actions.setFavourite(props.title)
+    }
+
+    const deleteFavourite = () => {
+        
+    }
+
+    console.log(store.favourite)
+
+    // const addFavourites = () => {
+    //     setActive(true)
+    //     console.log(active);
+    //     if (active === true){
+    //         setFavourites([props.title]);
+    //         console.log(favourites)
+    //     }
+    // }
 
     return (
         
             <div className="card card-marvel">
                 <div className="heart">
-                    <Heart isActive={active} onClick={addFavourites} style = {{fill: active ? "red" : "black", stroke: active ? "black":"white"}} animationScale = {1.2} animationTrigger = "both" animationDuration = {.2} className = {`customHeart${active ? " active": ""}`}/>
+                    <Heart isActive={active} onClick={clickHeart} style = {{fill: active ? "red" : "black", stroke: active ? "black":"white"}} animationScale = {1.2} animationTrigger = "both" animationDuration = {.2} className = {`customHeart${active ? " active": ""}`}/>
                 </div>
                 <Link to={`/characters/${props.id}/comics`} className="card card-marvel">
                 {

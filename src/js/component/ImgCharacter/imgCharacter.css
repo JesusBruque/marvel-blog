@@ -67,3 +67,7 @@ a {
 .container:hover .back {
     transform: rotateY(360deg);
 }
+
+.comics {
+    color: white;
+}

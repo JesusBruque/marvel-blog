@@ -67,7 +67,7 @@ const InfoCharacter = () => {
                                     </div>
                                 </div>
                             </div>
-                            <h2>COMICS</h2>
+                            <h2 className="comics">COMICS</h2>
                             <div className="container-comic">
                             
                                 {

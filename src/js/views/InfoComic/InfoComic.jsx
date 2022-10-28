@@ -46,6 +46,13 @@ const InfoComic = () => {
         }
     }
 
+    const description = () => {
+        let originalString = store.infoComic.description
+        return (
+                originalString.replace(/(<([^>]+)>)/gi, "")
+            )
+    }
+
     useEffect(() => {
         infoComicById();
         charactersComic();
@@ -57,7 +64,7 @@ const InfoComic = () => {
                 (
                     <div className="container-infoComic">
                         <div className="container-info-comic">
-                            <div className="row my-3">
+                            <div className="container-img-details row my-3">
                                 <div className="container-img-info">
                                     <img className="img-info" src={`${store.infoComic.thumbnail.path}.jpg`}></img>
                                 </div>
@@ -80,11 +87,9 @@ const InfoComic = () => {
                                             Published :{" "}
                                             {onSaleDate ? new Date(onSaleDate).toLocaleDateString() : "-"}
                                         </span>
-
-
                                     </div>
                                     <div className="text-center description-info-comic">
-                                        <span className="character">{store.infoComic.description}</span>
+                                        <div className="description">{description()}</div>
                                     </div>
                                 </div>
                             </div>
